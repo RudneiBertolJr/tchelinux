@@ -1,0 +1,7 @@
+[webnodes]
+node[1:2].acme.local
+[lbnode]
+lb.acme.local
+[tcheappnodes:children]
+webnodes
+lbnode
