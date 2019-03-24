@@ -1,4 +1,4 @@
-- name: set selinux permissive to adm port.
+- name: set selinux enforcing
   selinux:
     state: enforcing
     policy: targeted
@@ -21,7 +21,7 @@
     state: enabled
     immediate: true
 
-- name: open httpd service on firewalld
+- name: open haproxy adm service on firewalld
   firewalld:
     port: 81/tcp
     permanent: yes
