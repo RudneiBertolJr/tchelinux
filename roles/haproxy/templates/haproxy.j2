@@ -1,7 +1,6 @@
 global
         log 127.0.0.1   local0
         log 127.0.0.1   local1 debug
-        stats socket ipv4@127.0.0.1:9999 level admin
         stats socket /var/run/haproxy.sock mode 666 level admin
         maxconn   45000 # Total Max Connections.
         daemon
@@ -12,7 +11,7 @@ defaults
         timeout client 86400000
         timeout queue   1000s
 
-listen  stats   {{ ansible_default_ipv4.address }}:1936
+listen  stats   {{ ansible_default_ipv4.address }}:81
         mode            http
         log             global
 

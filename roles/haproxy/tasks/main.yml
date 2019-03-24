@@ -1,6 +1,6 @@
 - name: set selinux permissive to adm port.
   selinux:
-    state: permissive
+    state: enforcing
     policy: targeted
 
 - name: install haproxy package
@@ -23,7 +23,7 @@
 
 - name: open httpd service on firewalld
   firewalld:
-    port: 1936/tcp
+    port: 81/tcp
     permanent: yes
     state: enabled
     immediate: true

@@ -10,3 +10,18 @@
        when: ansible_fqdn in groups.webnodes
      - role: haproxy
        when: ansible_fqdn in groups.lbnode
+  tasks:
+     - yum:
+         name: '{{ item }}'
+         state: present
+       with_items:
+         - vim
+         - git
+       when: ansible_fqdn in groups.webnodes
+
+     - yum:
+         name: '{{ item }}'
+         state: present
+       with_items:
+         - vim
+       when: ansible_fqdn in groups.lbnode
